@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Card</title>
+	<link rel="shortcut icon" href="img/items/icon.svg" type="image/x-icon" style="fill:#fff">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/media.css">
+	<link rel="stylesheet" href="css/normalize.css">
+</head>
+<body>
+	<div class="site-container">
+		<header class="header">
+			<h3 class="header_item">Company</h3>
+			<h3 class="header_item">Баланс</h3>
+		</header>
+		<main class="main">
+			<div class="main-container">
+				<div class="main-container__data">
+					<div class="data-item">
+						<form action="#" class="data-item__form">
+							<h2 class="data-item__text">Сумма</h2>
+							<input type="number" name="sum" id="sum">
+						</form>
+					</div>
+					<div class="data-item">
+						<form action="#" class="data-item__form">
+							<h2 class="data-item__text">Номер карты</h2>
+							<input type="text" name="number" id="number" required>
+						</form>
+					</div>
+					<div class="data-item">
+						<form action="#" class="data-item__form ">
+							<h2 class="data-item__text">Имя</h2>
+							<input type="text" name="name" id="name">
+						</form>
+					</div>
+
+					<div class="data-item">
+						<form action="#" class="data-item__form">
+							<h2 class="data-item__text">Дата истечения</h2>
+							<input type="date" name="date" id="date">
+						</form>
+					</div>
+					<div class="data-item">
+						<form action="#" class="data-item__form">
+							<h2 class="data-item__text">CVV-код</h2>
+							<input type="password" name="cvv" id="cvv">
+						</form>
+					</div>
+				</div>
+				<div class="main-container__check">
+					<label for="#" class="check-label">
+						<input type="checkbox" name="check" id="check">
+						<h4 class="check-text">Я согласен с правилами сервиса</h4>
+					</label>
+				</div>
+				<button type="submit" class="btn">Вывести</button>
+			</div>
+		</main>
+
+		<footer class="footer">@peachferris/test</footer>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+</html>
