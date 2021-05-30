@@ -1,6 +1,8 @@
 :root {
   --white-color: #fff;
   --black-color: #000;
+  --grey-color:  #c4c4c4;
+  --neptun-color: rgb(132,237,231);
 }
 
 html {
@@ -18,7 +20,7 @@ body {
 }
 
 .site-container {
-  background: #84ede7;
+  background: var(--neptun-color);
   background: linear-gradient(176deg, #84ede7 0%, #eab0f3 35%, #ffb8d1 65%, #fadfdf 100%);
   background-repeat: no-repeat;
   background-position: center;
@@ -143,6 +145,22 @@ input {
   background-color: #cc6ddf;
   border: none;
   color: #fff;
+}
+
+.table {
+  margin-top: 60px;
+}
+
+.mainTable {
+  margin: auto;
+  width: 80%;
+  height: 500px;
+  background-color: var(--white-color);
+}
+
+.text-item {
+  padding: 30px;
+  border: 2px solid var(--grey-color);
 }
 
 .footer {
