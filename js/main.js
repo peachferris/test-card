@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded',() => {
+    document.querySelectorAll('input').forEach((e) => {
+        if(e.value==="")e.value=window.sessionStorage.getItem(e.name, e.value);
+        e.addEventListener('input',() => {
+            window.sessionStorage.setItem(e.name, e.value);
+        })
+    })
+});
+
 //AJAX
 let getJson = {"balanse": 100000};
 document.getElementById('header-item--balance').innerHTML = getJson.balanse;
@@ -28,8 +37,8 @@ function getHeaderBalanse(jsonObj) {
     let btn = document.querySelector('.btn');
     const form = document.querySelector('.data-item__form');
     const inputs = document.querySelectorAll('input');
-   
     
+
 
     const getKey = (e) => {
         let keyNum;
@@ -48,43 +57,50 @@ function getHeaderBalanse(jsonObj) {
     btn.addEventListener('click', () =>{
         function getCheck(){
             if (getKey() != "" && check.checked){
-                btn.disabled = true;
+                btn.setAttribute('disabled', 'false');
+
                 console.log('Good')
+
+                const user = [...document.querySelectorAll('input:not(#check)')].reduce((user, el) => {
+                    user[el.name] = el.value;
+                    return user;
+                }, {});   
+                document.querySelector('.pre').innerHTML = JSON.stringify(user, null, '');
+
             } else {
-                btn.disabled = false;
-                console.log('I need more info!')
+                btn.removeAttribute('disabled', 'true');
             }
-            }
+        }
             getCheck()
     });
 
-    
-/*
-    btn.addEventListener('click', () => {
-        
-    if (check.checked & inputs.value == "") {
-    
-    btn.disabled = false;
-    inputs.forEach(n => n.addEventListener('input', onInput));
-    onInput();
-    console.log('Good')
-    } else {
-    btn.disabled = true;
-    console.log('I need more info!')
-    }
-    
-    });
-  */  
+
+
+
+//User
     
 
-    
-    
-    //User
-    
-    const user = {
-    sum : 10000,
-    numbCard : 2567729381340987,
-    nameUser : 'Ivan',
-    date : 23092023,
-    cvvCode : 678
-    };
+/*
+sum : 10000,
+numbCard : 2567729381340987,
+nameUser : 'Ivan',
+date : 23092023,
+cvvCode : 678
+};
+*/
+
+/*
+Get Money 
+
+let getMoney = () => {
+    for(getJson--; getJson = 100000; getJson > 0 ) {
+        if(getJson = 0) {
+            alert('Недостаточно средств.')
+        } else {
+            
+        }
+    }
+}
+getMoney();
+
+*/

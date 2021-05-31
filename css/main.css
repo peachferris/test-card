@@ -159,7 +159,8 @@ input {
 }
 
 .text-item {
-  padding: 30px;
+  text-align: center;
+  padding: 5px;
   border: 2px solid var(--grey-color);
 }
 
@@ -167,5 +168,10 @@ input {
   padding: 20px;
   text-align: center;
   color: var(--black-color);
+}
+
+input:valid {
+  border-color: aqua;
+  color: brown;
 }
 /*# sourceMappingURL=main.css.map */

@@ -124,6 +124,7 @@ input {
 .table {
     margin-top: 60px;
 }
+
 .mainTable {
     margin: auto;
     width: 80%;
@@ -132,12 +133,19 @@ input {
 }
 
 .text-item {
-    padding: 30px;
+    text-align: center;
+    padding: 5px;
     border: 2px solid var(--grey-color);
 }
+
 
 .footer {
     padding: 20px;
     text-align: center;
     color: var(--black-color);
+}
+
+input:valid {
+    border-color: aqua;
+    color: brown;
 }

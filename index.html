@@ -21,32 +21,34 @@
 					<div class="data-item">
 						<form action="#" class="data-item__form">
 							<h2 class="data-item__text">Сумма</h2>
-							<input type="number" name="sum" id="sum">
+							<input type="number" name="sum" id="sum" onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
 						</form>
 					</div>
 					<div class="data-item">
 						<form action="#" class="data-item__form">
 							<h2 class="data-item__text">Номер карты</h2>
-							<input type="text" name="number" id="number" placeholder="1234 5678 9032 3456">
+							<input type="number" name="number" id="number" placeholder="1234 5678 9032 3456" title="Введите 12 цифр, пожалуйста"onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
 						</form>
 					</div>
 					<div class="data-item">
 						<form action="#" class="data-item__form ">
 							<h2 class="data-item__text">Имя</h2>
-							<input type="text" name="name" id="name" placeholder="Ivan">
+							<input type="text" name="name" id="name" placeholder="Ivan" onKeyUp="if(/[^a-zA-Zа-яА-ЯёЁ .]/i.test(this.value)){this.value='';}">
 						</form>
 					</div>
 
 					<div class="data-item">
 						<form action="#" class="data-item__form">
-							<h2 class="data-item__text">Дата истечения</h2>
-							<input type="date" name="date" id="date">
+							<label for="">
+								<h2 class="data-item__text">Дата истечения</h2>
+								<input type="date" name="date" id="date">
+							</label>
 						</form>
 					</div>
 					<div class="data-item">
 						<form action="#" class="data-item__form">
 							<h2 class="data-item__text">CVV-код</h2>
-							<input type="password" name="cvv" id="cvv">
+							<input type="password" name="cvv" id="cvv" title="Введите 3 цифры, пожалуйста" onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
 						</form>
 					</div>
 				</div>
@@ -58,11 +60,12 @@
 				</div>
 				<button type="submit" class="btn">Вывести</button>
 			</div>
+			<p class="pre"></p>
 			<div class="table">
 				<table class="mainTable">
 					<tr class="table-container__data">
-						<td class="text-item"></td>
-						<td class="text-item"></td>
+						<td class="text-item">Дата выведенных средств</td>
+						<td class="text-item">Количество</td>
 					</tr>
 					<tr class="table-container__data">
 						<td class="text-item"></td>
