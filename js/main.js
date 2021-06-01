@@ -59,7 +59,7 @@ function getHeaderBalanse(jsonObj) {
             if (getKey() != "" && check.checked){
                 btn.setAttribute('disabled', 'false');
 
-                console.log('Good')
+
 
                 const user = [...document.querySelectorAll('input:not(#check)')].reduce((user, el) => {
                     user[el.name] = el.value;
