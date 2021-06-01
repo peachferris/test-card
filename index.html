@@ -20,20 +20,20 @@
 				<div class="main-container__data">
 					<div class="data-item">
 						<form action="#" class="data-item__form">
-							<h2 class="data-item__text">Сумма</h2>
-							<input type="number" name="sum" id="sum" onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
+							<h2 class="data-item__text" >Сумма</h2>
+							<input type="number" class="inputs--1" name="sum" id="sum" autocomplete="off" onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
 						</form>
 					</div>
 					<div class="data-item">
 						<form action="#" class="data-item__form">
 							<h2 class="data-item__text">Номер карты</h2>
-							<input type="number" name="number" id="number" placeholder="1234 5678 9032 3456" title="Введите 12 цифр, пожалуйста"onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
+							<input type="number" class="inputs--2" name="number" id="number" autocomplete="off" placeholder="1234 5678 9032 3456" title="Введите 12 цифр, пожалуйста"onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
 						</form>
 					</div>
 					<div class="data-item">
 						<form action="#" class="data-item__form ">
 							<h2 class="data-item__text">Имя</h2>
-							<input type="text" name="name" id="name" placeholder="Ivan" onKeyUp="if(/[^a-zA-Zа-яА-ЯёЁ .]/i.test(this.value)){this.value='';}">
+							<input type="text" class="inputs--3" name="name" id="name" autocomplete="off" placeholder="Ivan" onKeyUp="if(/[^a-zA-Zа-яА-ЯёЁ .]/i.test(this.value)){this.value='';}">
 						</form>
 					</div>
 
@@ -41,51 +41,69 @@
 						<form action="#" class="data-item__form">
 							<label for="">
 								<h2 class="data-item__text">Дата истечения</h2>
-								<input type="date" name="date" id="date">
+								<input type="date" class="inputs--4" name="date" id="date" autocomplete="off">
 							</label>
 						</form>
 					</div>
 					<div class="data-item">
 						<form action="#" class="data-item__form">
 							<h2 class="data-item__text">CVV-код</h2>
-							<input type="password" name="cvv" id="cvv" title="Введите 3 цифры, пожалуйста" onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
+							<input type="password" class="inputs--5" name="cvv" id="cvv" autocomplete="off" title="Введите 3 цифры, пожалуйста" onkeyup="this.value = this.value.replace (/\D/gi, '').replace (/^0+/, '')">
 						</form>
 					</div>
 				</div>
 				<div class="main-container__check">
 					<label for="#" class="check-label">
-						<input type="checkbox" name="check" id="check">
+						<input type="checkbox" name="check" id="check" autocomplete="off">
 						<h4 class="check-text">Я согласен с правилами сервиса</h4>
 					</label>
 				</div>
 				<button type="submit" class="btn">Вывести</button>
 			</div>
-			<p class="pre"></p>
+
 			<div class="table">
 				<table class="mainTable">
 					<tr class="table-container__data">
-						<td class="text-item">Дата выведенных средств</td>
-						<td class="text-item">Количество</td>
+						<td class="text-item--modify">Сумма</td>
+						<td class="text-item--modify">Номер карты</td>
+						<td class="text-item--modify">Имя</td>
+						<td class="text-item--modify">Дата истечения</td>
+						<td class="text-item--modify">CVV-код</td>
 					</tr>
 					<tr class="table-container__data">
-						<td class="text-item"></td>
-						<td class="text-item"></td>
+						<td class="text-item text-item--1"></td>
+						<td class="text-item text-item--2"></td>
+						<td class="text-item text-item--3"></td>
+						<td class="text-item text-item--4"></td>
+						<td class="text-item text-item--5"></td>
 					</tr>
 					<tr class="table-container__data">
-						<td class="text-item"></td>
-						<td class="text-item"></td>
+						<td class="text-item text-item--6"></td>
+						<td class="text-item text-item--2"></td>
+						<td class="text-item text-item--3"></td>
+						<td class="text-item text-item--4"></td>
+						<td class="text-item text-item--5"></td>
 					</tr>
 					<tr class="table-container__data">
-						<td class="text-item"></td>
-						<td class="text-item"></td>
+						<td class="text-item text-item--1"></td>
+						<td class="text-item text-item--2"></td>
+						<td class="text-item text-item--3"></td>
+						<td class="text-item text-item--4"></td>
+						<td class="text-item text-item--5"></td>
 					</tr>
 					<tr class="table-container__data">
-						<td class="text-item"></td>
-						<td class="text-item"></td>
+						<td class="text-item text-item--1"></td>
+						<td class="text-item text-item--2"></td>
+						<td class="text-item text-item--3"></td>
+						<td class="text-item text-item--4"></td>
+						<td class="text-item text-item--5"></td>
 					</tr>
 					<tr class="table-container__data">
-						<td class="text-item"></td>
-						<td class="text-item"></td>
+						<td class="text-item text-item--1"></td>
+						<td class="text-item text-item--2"></td>
+						<td class="text-item text-item--3"></td>
+						<td class="text-item text-item--4"></td>
+						<td class="text-item text-item--5"></td>
 					</tr>
 				</table>
 			</div>

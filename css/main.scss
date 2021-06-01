@@ -72,6 +72,7 @@ input {
     opacity: 0.3;
     border: none;
     width: 250px;
+    padding-left: 10px;
     height: 36px;
 }
 .close {
@@ -135,6 +136,10 @@ input {
 .text-item {
     text-align: center;
     padding: 5px;
+    border: 2px solid var(--grey-color);
+}
+.text-item--modify {
+    text-align: center;
     border: 2px solid var(--grey-color);
 }
 

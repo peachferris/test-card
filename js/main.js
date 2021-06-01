@@ -1,11 +1,3 @@
-document.addEventListener('DOMContentLoaded',() => {
-    document.querySelectorAll('input').forEach((e) => {
-        if(e.value==="")e.value=window.sessionStorage.getItem(e.name, e.value);
-        e.addEventListener('input',() => {
-            window.sessionStorage.setItem(e.name, e.value);
-        })
-    })
-});
 
 //AJAX
 let getJson = {"balanse": 100000};
@@ -36,9 +28,8 @@ function getHeaderBalanse(jsonObj) {
 
     let btn = document.querySelector('.btn');
     const form = document.querySelector('.data-item__form');
-    const inputs = document.querySelectorAll('input');
+    let inputs = document.querySelectorAll('input');
     
-
 
     const getKey = (e) => {
         let keyNum;
@@ -57,50 +48,70 @@ function getHeaderBalanse(jsonObj) {
     btn.addEventListener('click', () =>{
         function getCheck(){
             if (getKey() != "" && check.checked){
-                btn.setAttribute('disabled', 'false');
+                btn.disabled = false;
 
-
-
-                const user = [...document.querySelectorAll('input:not(#check)')].reduce((user, el) => {
+                const user = [...document.querySelectorAll('input')].reduce((user, el) => {
                     user[el.name] = el.value;
                     return user;
-                }, {});   
-                document.querySelector('.pre').innerHTML = JSON.stringify(user, null, '');
+                }, {}); 
+                
+                getData(); 
+                btnClear();
+                //document.querySelectorAll('.table-container__data').innerHTML = JSON.stringify(user, null, '');
 
             } else {
-                btn.removeAttribute('disabled', 'true');
+                btn.disabled = true;
             }
         }
             getCheck()
     });
 
 
-
-
-//User
-    
-
-/*
-sum : 10000,
-numbCard : 2567729381340987,
-nameUser : 'Ivan',
-date : 23092023,
-cvvCode : 678
+const getData = () => {
+    document.querySelector('.text-item--1').appendChild(document.createTextNode(document.querySelector('.inputs--1').value));
+    document.querySelector('.text-item--2').appendChild(document.createTextNode(document.querySelector('.inputs--2').value));
+    document.querySelector('.text-item--3').appendChild(document.createTextNode(document.querySelector('.inputs--3').value));
+    document.querySelector('.text-item--4').appendChild(document.createTextNode(document.querySelector('.inputs--4').value));
+    document.querySelector('.text-item--5').appendChild(document.createTextNode(document.querySelector('.inputs--5').value));
 };
+     
+const btnClear = () => {
+    for (let i = 0; i < inputs.length; i++) {
+       if(i) {
+        inputs[i].value = ""
+       } else {
+        this.return(i)
+       }
+    }
+};
+
+
+
+/*if (input.length < 4) {
+    alert("Имя слишком короткое, должно быть более 4 символов");
+    this.return();
+  }
+  this = value;
 */
 
-/*
-Get Money 
 
-let getMoney = () => {
-    for(getJson--; getJson = 100000; getJson > 0 ) {
-        if(getJson = 0) {
-            alert('Недостаточно средств.')
-        } else {
-            
-        }
-    }
+
+
+
+/* Get Money 
+
+class Balance {
+
+    get()
+    set()
+    add()
 }
-getMoney();
+
+class Money {
+    amount: 100000,
+    currency
+}
+balanse = new Balance()
+balanse.fetch()
 
 */
