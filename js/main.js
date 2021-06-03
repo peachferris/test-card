@@ -26,10 +26,10 @@ function getHeaderBalanse(jsonObj) {
 
 //Block Button
 
-    let btn = document.querySelector('.btn');
-    const form = document.querySelector('.data-item__form');
-    let inputs = document.querySelectorAll('input');
-    
+  let btn = document.querySelector('.btn');
+const form = document.querySelector('.data-item__form');
+let inputs = document.querySelectorAll('input');
+
 
     const getKey = (e) => {
         let keyNum;
@@ -48,6 +48,7 @@ function getHeaderBalanse(jsonObj) {
     btn.addEventListener('click', () =>{
         function getCheck(){
             if (getKey() != "" && check.checked){
+                console.log('click')
                 btn.disabled = false;
 
                 const user = [...document.querySelectorAll('input')].reduce((user, el) => {
@@ -58,7 +59,7 @@ function getHeaderBalanse(jsonObj) {
                 getData(); 
                 btnClear();
                 //document.querySelectorAll('.table-container__data').innerHTML = JSON.stringify(user, null, '');
-
+                
             } else {
                 btn.disabled = true;
             }
@@ -67,33 +68,27 @@ function getHeaderBalanse(jsonObj) {
     });
 
 
-const getData = () => {
-    document.querySelector('.text-item--1').appendChild(document.createTextNode(document.querySelector('.inputs--1').value));
-    document.querySelector('.text-item--2').appendChild(document.createTextNode(document.querySelector('.inputs--2').value));
-    document.querySelector('.text-item--3').appendChild(document.createTextNode(document.querySelector('.inputs--3').value));
-    document.querySelector('.text-item--4').appendChild(document.createTextNode(document.querySelector('.inputs--4').value));
-    document.querySelector('.text-item--5').appendChild(document.createTextNode(document.querySelector('.inputs--5').value));
-};
+function getData(){
+			let item_sum = document.getElementById('sum').value;
+			let item_number = document.getElementById('number').value;
+			let item_name = document.getElementById('name').value;
+			let item_date = document.getElementById('date').value;
+			let item_cvv = document.getElementById('cvv').value;
+
+      let xTable = document.getElementById('TableforData');
+      let tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + item_sum + '</td><td>' + item_number + '</td><td>' + item_name + '</td><td>' +  item_date + '</td><td>' + item_cvv +'</td>';
+      xTable.children[0].appendChild(tr);
+}
+
      
 const btnClear = () => {
     for (let i = 0; i < inputs.length; i++) {
        if(i) {
-        inputs[i].value = ""
-       } else {
-        this.return(i)
+        inputs[i].value = "";
        }
     }
 };
-
-
-
-/*if (input.length < 4) {
-    alert("Имя слишком короткое, должно быть более 4 символов");
-    this.return();
-  }
-  this = value;
-*/
-
 
 
 

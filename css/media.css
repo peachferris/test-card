@@ -27,10 +27,19 @@
         width: 200px;
         font-size: 18px;
     }
+    .table td {
+        padding: 5px 5px; 
+    }
+    .text-item--modify {
+        font-size: 10px;
+    }
 }
 
 @media (max-width: 375px) {
     input {
+        width: 200px;
+    }
+    .main-container__data input {
         width: 200px;
     }
 }
