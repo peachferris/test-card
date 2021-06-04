@@ -200,4 +200,8 @@ body {
   text-align: center;
   color: var(--black-color);
 }
+
+.wrong {
+  border: 1px solid red;
+}
 /*# sourceMappingURL=main.css.map */

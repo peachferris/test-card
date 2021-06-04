@@ -1,54 +1,35 @@
-
 //AJAX
-let getJson = {"balanse": 100000};
-document.getElementById('header-item--balance').innerHTML = getJson.balanse;
 
-/*
-const headerBalanse = document.querySelector('.header-item--balance');
-const requestURL = 'js/ajax.js';
-const request = new XMLHttpRequest();
+let balance;
 
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
+async function fetchTest() {
+    let response = await fetch('js/ajax.json');
+    let responseText = await (response.text());
 
-request.onload = function() {
-    const balanse = request.response;
-    getHeaderBalanse(balanse);
+    balance = JSON.parse(responseText).balance;
+    
+    document.getElementById('header-item--balance').innerHTML = balance;
 }
-  
-function getHeaderBalanse(jsonObj) {
-    var myH3 = document.createElement('h3');
-    myH3.textContent = jsonObj['balanse'];
-    headerBalanse.appendChild(myH3);
-}
-*/
+
+(async() => {
+    await fetchTest();
+})();
+
 
 //Block Button
 
-  let btn = document.querySelector('.btn');
-const form = document.querySelector('.data-item__form');
-let inputs = document.querySelectorAll('input');
+    let btn = document.querySelector('.btn');
+    const form = document.querySelector('.data-item__form');
+    let inputs = document.querySelectorAll('input');
 
-
-    const getKey = (e) => {
-        let keyNum;
-
-        if(inputs.event) {
-            keyNum.inputs.event.keyUp;
-        } else if (e) {
-                keyNum = e.which;
-        }
-            console.log(keyNum)
-        };
-
-        document.onkeyup = getKey();
-
+    const getKey =  document.addEventListener('keyup', () => { 
+        console.log('Клавиша была нажата!'); 
+    });
    
     btn.addEventListener('click', () =>{
-        function getCheck(){
-            if (getKey() != "" && check.checked){
-                console.log('click')
+        const getCheck = () =>{
+            if (getKey != "" && check.checked){
+                console.log('click');
                 btn.disabled = false;
 
                 const user = [...document.querySelectorAll('input')].reduce((user, el) => {
@@ -57,18 +38,18 @@ let inputs = document.querySelectorAll('input');
                 }, {}); 
                 
                 getData(); 
+                getCorrect();
                 btnClear();
-                //document.querySelectorAll('.table-container__data').innerHTML = JSON.stringify(user, null, '');
-                
+                getMoney();
             } else {
                 btn.disabled = true;
             }
         }
-            getCheck()
+            getCheck();
     });
 
 
-function getData(){
+ const getData = () => {
 			let item_sum = document.getElementById('sum').value;
 			let item_number = document.getElementById('number').value;
 			let item_name = document.getElementById('name').value;
@@ -79,34 +60,56 @@ function getData(){
       let tr = document.createElement('tr');
       tr.innerHTML = '<td>' + item_sum + '</td><td>' + item_number + '</td><td>' + item_name + '</td><td>' +  item_date + '</td><td>' + item_cvv +'</td>';
       xTable.children[0].appendChild(tr);
-}
-
+};
      
 const btnClear = () => {
     for (let i = 0; i < inputs.length; i++) {
        if(i) {
         inputs[i].value = "";
+        check.checked = false;
        }
     }
 };
 
+let getCorrect = () => {
+    let username = document.getElementById('name').value;
+    let cadnumber= document.getElementById('number').value;
+    let cvvnumb = document.getElementById('cvv').value;
+
+    if (username.length < 4) {
+        alert('Слишком мало букв! Разрешённый минимум: 4')
+    };
+
+    if(cadnumber.length < 12) {
+        alert('Слишком мало цифр! Нужно ввести : 12')
+    };
+
+    if(cvvnumb.length < 3) {
+        alert('Слишком мало цифр! Нужно ввести: 3')
+    };
+};
 
 
+//Get Money 
 
-/* Get Money 
+const getMoney = () => {
+    let i = document.getElementById('sum').value;
+    let u = balance;
+    console.log(i);
+    console.log(u);
+ 
+        if (i < u) {
+        let getMinus = u - i;
+        document.getElementById('header-item--balance').innerHTML = getMinus;
+        console.log(getMinus);
+        alert('Деньги успешно выведены');
 
-class Balance {
+        } else {
+            if(i > u) {
+                alert('Недостаточно средств!');
+            }
+            
+        };
 
-    get()
-    set()
-    add()
 }
 
-class Money {
-    amount: 100000,
-    currency
-}
-balanse = new Balance()
-balanse.fetch()
-
-*/
